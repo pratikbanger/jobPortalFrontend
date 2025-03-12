@@ -12,7 +12,7 @@ import { getAuthToken, saveAuthToken } from '../../../Service';
 
 const page = () => {
 
-    const authToken = getAuthToken()
+    const authToken = getAuthToken().authToken
     const router = useRouter()
 
     useEffect(() => {
@@ -42,9 +42,7 @@ const page = () => {
 
                 if (response.data.status == true) {
                     toast.success(response.data.message);
-                    localStorage.setItem('role', response.data.data.role)
-
-                    saveAuthToken(response.data.token)
+                    saveAuthToken(response.data.token, response.data.data.role)
 
                     router.push('/')
                 } else {

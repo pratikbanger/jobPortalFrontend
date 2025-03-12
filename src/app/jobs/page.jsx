@@ -12,7 +12,7 @@ async function fetchJobs() {
 
     const headers = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
+        "Authorization": `Bearer ${authToken}`,
     };
 
     try {
